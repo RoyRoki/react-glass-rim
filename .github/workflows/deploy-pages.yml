@@ -30,6 +30,11 @@ jobs:
           node-version: 20
           cache: pnpm
 
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
       - run: pnpm install --frozen-lockfile
 
       # Build the library first (the playground aliases its source, but this
