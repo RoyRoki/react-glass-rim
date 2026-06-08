@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="g1" cx="15%" cy="-10%" r="80%">
+      <stop offset="0" stop-color="#2a2350"/>
+      <stop offset="0.6" stop-color="#0b0a12" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="g2" cx="110%" cy="20%" r="70%">
+      <stop offset="0" stop-color="#3a1d4d"/>
+      <stop offset="0.55" stop-color="#0b0a12" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="0.5" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#0b0a12"/>
+  <rect width="1200" height="630" fill="url(#g1)"/>
+  <rect width="1200" height="630" fill="url(#g2)"/>
+  <rect x="760" y="150" width="330" height="330" rx="40" fill="#ffffff" fill-opacity="0.07"
+        stroke="url(#rim)" stroke-width="3"/>
+  <text x="90" y="250" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
+        font-size="76" font-weight="800" fill="#ffffff" letter-spacing="-2">react-glass-rim</text>
+  <text x="92" y="320" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
+        font-size="34" font-weight="500" fill="#b69bff">Apple-style liquid-glass rim for React</text>
+  <text x="92" y="395" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
+        font-size="26" font-weight="400" fill="rgba(255,255,255,0.6)">Hook + component · glassmorphism edge light · zero dependencies</text>
+</svg>

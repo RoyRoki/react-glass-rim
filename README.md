@@ -4,11 +4,15 @@
 [![CI](https://github.com/royroki/react-glass-rim/actions/workflows/ci.yml/badge.svg)](https://github.com/royroki/react-glass-rim/actions/workflows/ci.yml)
 [![license](https://img.shields.io/npm/l/react-glass-rim.svg)](./LICENSE)
 
-> A masked conic-gradient **glass-edge rim** for any React element — a hook **and** a drop-in component, with **zero runtime dependencies**.
+> The easiest way to add an **Apple-style liquid-glass rim / edge light** to any React element — a hook **and** a drop-in component, with **zero runtime dependencies**.
 
 **[▶ Live playground](https://royroki.github.io/react-glass-rim/)**
 
-`react-glass-rim` draws a soft, directional "liquid glass" highlight around the border of an element. Unlike a plain `border` or `box-shadow`, the rim follows rounded corners, fades the highlight around the contour (bright on the lit corners, transparent on the shadowed ones), and adapts to **cards, pills, and circles** automatically.
+`react-glass-rim` is a tiny React library for the **glassmorphism rim-light effect** — the bright, specular highlight that runs along the edge of frosted-glass UI (think Apple's "liquid glass", iOS control center cards, and visionOS panels). It draws a soft, directional glass highlight around the border of any element.
+
+Unlike a plain `border` or `box-shadow`, the rim **follows rounded corners**, **fades the highlight around the contour** (bright on the lit corners, transparent on the shadowed ones), and **adapts to cards, pills, and circles automatically**. Pair it with `backdrop-filter: blur()` and a translucent fill and you get a complete, production-ready liquid-glass surface.
+
+**Use it when you want:** a glass card border, frosted-glass panels, an Apple-style edge light, a glassmorphism UI kit accent, or a specular rim on buttons and pills — in React, Next.js (App Router), Remix, or Vite.
 
 It works by appending a couple of absolutely-positioned, `pointer-events: none` ring layers to your host and masking a conic-gradient down to a hairline strip on the border — no canvas, no SVG, no extra paint cost on your content.
 
@@ -149,6 +153,68 @@ The hook and component are marked `"use client"`. The rim is drawn in a `useEffe
 
 ---
 
+## Why not just CSS `border` or `box-shadow`?
+
+A glass edge is **not** a uniform line — its brightness varies around the contour, which a single `border` or `box-shadow` can't do.
+
+| Approach | Follows rounded corners | Fades highlight around the edge | Adapts card / pill / circle | Tracks state-change backgrounds |
+| -------- | :---: | :---: | :---: | :---: |
+| `border: 1px solid` | ✅ | ❌ (uniform) | ❌ | ❌ |
+| `box-shadow` rim | ⚠️ | ❌ (uniform) | ❌ | ❌ |
+| Gradient `border-image` | ❌ (breaks on radius) | ⚠️ | ❌ | ❌ |
+| **react-glass-rim** | ✅ | ✅ | ✅ | ✅ |
+
+It's also **zero-dependency** and **~1.5 kB gzipped**, so it won't pull a UI framework into your bundle.
+
+---
+
+## FAQ
+
+### How do I create an Apple-style liquid-glass effect in React?
+
+Combine three things: a **translucent background**, a **`backdrop-filter: blur()`**, and a **rim/edge light** on the border. `react-glass-rim` provides the last (and hardest) part — the directional glass highlight that follows the element's rounded corners:
+
+```tsx
+<Rim
+  style={{
+    background: "rgba(255,255,255,0.08)",
+    backdropFilter: "blur(16px)",
+    borderRadius: 24,
+  }}
+  intensity={0.35}
+>
+  …
+</Rim>
+```
+
+### What's the best React library for the glassmorphism / glass-card border?
+
+`react-glass-rim` is purpose-built for exactly the **glass rim / edge-light** part of glassmorphism — the bit plain CSS can't render. It's a ~1.5 kB, zero-dependency hook + component that works in React 18/19, Next.js, Remix, and Vite, and it auto-adapts to cards, pills, and circles.
+
+### How do I add a glowing / specular rim light to a card or button?
+
+Use the `useRimEffect` hook on a host you already render, or wrap it with `<Rim>`. Tune the look with `accentColor`, `intensity`, `steps`, and `band`. See [Quick start](#quick-start).
+
+### Does it work with Next.js App Router and Server Components?
+
+Yes. The hook/component are client islands (`"use client"`) and the rim renders in `useEffect`, so it's SSR-safe — no hydration mismatch. See [SSR / Next.js](#ssr--nextjs).
+
+### Can I change the glass color (warm / cool / tinted glass)?
+
+Yes — pass `accentColor` as `"r, g, b"` channels (e.g. `"180, 210, 255"` for a cool blue glass) and `intensity` for the alpha.
+
+### How big is it, and what are the dependencies?
+
+About **1.5 kB gzipped** with **zero runtime dependencies**. `react` (18+) is a peer dependency.
+
+### Does it support Tailwind CSS?
+
+Yes — the rim is applied via a ref/wrapper and is independent of how you style the host, so your Tailwind classes (`rounded-2xl`, `backdrop-blur`, etc.) work as-is.
+
+---
+
 ## License
 
 MIT © [Roki Roy](https://rokiroy.in)
+
+<sub>Keywords: react glass effect, glassmorphism, apple liquid glass, frosted glass, glass card, rim light, edge light, specular border, backdrop blur, glass border react, glassmorphism react library.</sub>

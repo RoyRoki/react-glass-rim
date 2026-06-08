@@ -3,7 +3,105 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>react-glass-rim · playground</title>
+    <link rel="icon" type="image/svg+xml" href="/react-glass-rim/favicon.svg" />
+    <link rel="canonical" href="https://royroki.github.io/react-glass-rim/" />
+
+    <!-- Primary SEO -->
+    <title>react-glass-rim — Apple-style liquid-glass rim & glassmorphism edge light for React</title>
+    <meta
+      name="description"
+      content="react-glass-rim adds an Apple-style liquid-glass rim / edge-light to any React element. A tiny zero-dependency glassmorphism hook + component for glass cards, frosted panels, and specular borders. Works with Next.js, Remix, Vite & Tailwind."
+    />
+    <meta
+      name="keywords"
+      content="react glass effect, glassmorphism, apple liquid glass, frosted glass, glass card, rim light, edge light, specular border, backdrop blur, glass border react, react glassmorphism library, next.js glass"
+    />
+    <meta name="author" content="Roki Roy" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://royroki.github.io/react-glass-rim/" />
+    <meta property="og:title" content="react-glass-rim — Apple-style liquid-glass rim for React" />
+    <meta
+      property="og:description"
+      content="A tiny zero-dependency React hook + component for the glassmorphism rim / edge-light effect. Glass cards, frosted panels, and Apple-style liquid-glass borders."
+    />
+    <meta property="og:image" content="https://royroki.github.io/react-glass-rim/og.svg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="react-glass-rim" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="react-glass-rim — Apple-style liquid-glass rim for React" />
+    <meta
+      name="twitter:description"
+      content="A tiny zero-dependency React hook + component for the glassmorphism rim / edge-light effect."
+    />
+    <meta name="twitter:image" content="https://royroki.github.io/react-glass-rim/og.svg" />
+
+    <!-- Structured data: the software package (helps search + AI engines cite it) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "react-glass-rim",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any (React 18+)",
+        "description": "An Apple-style liquid-glass rim / edge-light effect for React. A tiny zero-dependency glassmorphism hook + drop-in component for glass cards, frosted panels, and specular borders.",
+        "url": "https://royroki.github.io/react-glass-rim/",
+        "downloadUrl": "https://www.npmjs.com/package/react-glass-rim",
+        "codeRepository": "https://github.com/royroki/react-glass-rim",
+        "programmingLanguage": ["TypeScript", "JavaScript"],
+        "keywords": "react, glassmorphism, apple liquid glass, frosted glass, glass card, rim light, edge light, specular border, backdrop blur, react component, react hook",
+        "license": "https://opensource.org/licenses/MIT",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "author": { "@type": "Person", "name": "Roki Roy", "url": "https://rokiroy.in" }
+      }
+    </script>
+
+    <!-- Structured data: FAQ (Answer Engine Optimisation) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I create an Apple-style liquid-glass effect in React?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Combine a translucent background, a backdrop-filter blur, and a rim/edge light on the border. react-glass-rim provides the hardest part — the directional glass highlight that follows the element's rounded corners — via a useRimEffect hook or a <Rim> component."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the best React library for a glassmorphism glass-card border?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "react-glass-rim is purpose-built for the glass rim / edge-light part of glassmorphism that plain CSS cannot render. It is about 1.5 kB gzipped, has zero dependencies, works with React 18/19, Next.js, Remix and Vite, and auto-adapts to cards, pills and circles."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I add a specular rim light to a card or button in React?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Use the useRimEffect hook on a host element you render, or wrap content with the <Rim> component, then tune accentColor, intensity, steps and band to style the glass highlight."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does react-glass-rim work with Next.js App Router and Server Components?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The hook and component are client islands and the rim renders inside useEffect, so it is SSR-safe with no hydration mismatch and can be dropped inside Server Components."
+            }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
