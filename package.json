@@ -18,7 +18,7 @@
   "author": "Roki Roy (https://rokiroy.in)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/royroki/react-glass-rim.git"
+    "url": "git+https://github.com/royroki/react-glass-rim.git"
   },
   "homepage": "https://rokiroy.in",
   "bugs": {
