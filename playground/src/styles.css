@@ -114,6 +114,24 @@ input[type="color"] {
   border-color: rgba(182, 155, 255, 0.5);
 }
 
+.toggle {
+  padding: 3px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 999px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: all 0.15s;
+}
+
+.toggle[data-on="true"] {
+  color: #fff;
+  background: rgba(182, 155, 255, 0.28);
+  border-color: rgba(182, 155, 255, 0.6);
+}
+
 .snippet {
   margin-top: 22px;
 }
@@ -132,11 +150,27 @@ input[type="color"] {
 
 /* ── Stage ──────────────────────────────────────────────────── */
 .stage {
+  position: relative;
+  isolation: isolate;
   padding: 56px 48px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 36px;
   align-content: start;
+  min-height: 100vh;
+}
+
+/* The selectable background image sits behind every card so the glass blur has
+   real imagery to refract. A dark scrim keeps the white rim + text legible. */
+.stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(rgba(11, 10, 18, 0.45), rgba(11, 10, 18, 0.65)),
+    var(--bg) center / cover no-repeat fixed;
+  transition: background-image 0.3s ease;
 }
 
 .demo-label {
@@ -148,17 +182,32 @@ input[type="color"] {
   margin: 8px 0 -16px;
 }
 
-/* The rim hosts. Note: position relative + NO overflow clip on the host. */
+/* Shared "widget glass" surface — translucent fill so the background glows
+   through, plus a soft inner sheen + drop shadow. The backdrop-blur itself is
+   applied inline (it's a live control). Mirrors the source app's WidgetCard. */
+.glass {
+  background: color-mix(in srgb, rgba(255, 255, 255, 0.08) 55%, transparent);
+  box-shadow:
+    inset 2px 2px 14px 0 rgba(255, 255, 255, 0.06),
+    0 18px 40px -12px rgba(0, 0, 0, 0.55);
+}
+
+/* The rim hosts. Note: position relative + NO overflow clip on the host —
+   the rim layer uses inset:-1px and would be clipped by overflow:hidden. */
 .card {
   position: relative;
   isolation: isolate;
   border-radius: 24px;
-  padding: 24px;
   min-height: 150px;
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow:
-    inset 2px 2px 14px 0 rgba(255, 255, 255, 0.06),
-    0 18px 40px -12px rgba(0, 0, 0, 0.55);
+  display: flex;
+}
+
+/* Inner wrapper clips content to the rounded bounds WITHOUT breaking the rim. */
+.card-inner {
+  border-radius: inherit;
+  overflow: hidden;
+  padding: 24px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -172,7 +221,7 @@ input[type="color"] {
 .card p {
   margin: 0;
   font-size: 12.5px;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.5;
 }
 
@@ -181,7 +230,6 @@ input[type="color"] {
   isolation: isolate;
   border-radius: 999px;
   padding: 12px 22px;
-  background: rgba(255, 255, 255, 0.06);
   font-size: 13px;
   font-weight: 600;
   align-self: center;
@@ -194,7 +242,6 @@ input[type="color"] {
   width: 120px;
   height: 120px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
   display: grid;
   place-items: center;
   font-size: 13px;
