@@ -1,0 +1,66 @@
+{
+  "name": "react-glass-rim",
+  "version": "0.1.0",
+  "description": "A masked conic-gradient \"glass edge\" rim for any React element — hook + drop-in component, zero runtime dependencies.",
+  "keywords": [
+    "react",
+    "glass",
+    "glassmorphism",
+    "rim",
+    "rim-light",
+    "border",
+    "gradient",
+    "conic-gradient",
+    "ui",
+    "hook"
+  ],
+  "license": "MIT",
+  "author": "Roki Roy (https://rokiroy.in)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/royroki/react-glass-rim.git"
+  },
+  "homepage": "https://rokiroy.in",
+  "bugs": {
+    "url": "https://github.com/royroki/react-glass-rim/issues"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "playground": "pnpm --filter react-glass-rim-playground dev",
+    "prepublishOnly": "pnpm build"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "react": "^19.0.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

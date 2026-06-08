@@ -1,0 +1,10 @@
+# Publish only the built library. Everything else is dev-only.
+src
+playground
+tsup.config.ts
+tsconfig.json
+pnpm-workspace.yaml
+pnpm-lock.yaml
+.gitignore
+*.log
+.DS_Store
