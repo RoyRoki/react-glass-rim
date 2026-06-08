@@ -1,6 +1,12 @@
 # react-glass-rim
 
+[![npm version](https://img.shields.io/npm/v/react-glass-rim.svg)](https://www.npmjs.com/package/react-glass-rim)
+[![CI](https://github.com/royroki/react-glass-rim/actions/workflows/ci.yml/badge.svg)](https://github.com/royroki/react-glass-rim/actions/workflows/ci.yml)
+[![license](https://img.shields.io/npm/l/react-glass-rim.svg)](./LICENSE)
+
 > A masked conic-gradient **glass-edge rim** for any React element — a hook **and** a drop-in component, with **zero runtime dependencies**.
+
+**[▶ Live playground](https://royroki.github.io/react-glass-rim/)**
 
 `react-glass-rim` draws a soft, directional "liquid glass" highlight around the border of an element. Unlike a plain `border` or `box-shadow`, the rim follows rounded corners, fades the highlight around the contour (bright on the lit corners, transparent on the shadowed ones), and adapts to **cards, pills, and circles** automatically.
 

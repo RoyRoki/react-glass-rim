@@ -45,8 +45,10 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "playground": "pnpm --filter react-glass-rim-playground dev",
-    "prepublishOnly": "pnpm build"
+    "prepublishOnly": "pnpm test && pnpm build"
   },
   "peerDependencies": {
     "react": ">=18.0.0"
@@ -55,7 +57,8 @@
     "@types/react": "^19.0.0",
     "react": "^19.0.0",
     "tsup": "^8.3.5",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
   },
   "publishConfig": {
     "access": "public"
